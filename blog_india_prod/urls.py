@@ -23,3 +23,5 @@ urlpatterns = [
     path('api/', include('blog.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+if settings.DEBUG:  # Only serve media files through Django in development
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
